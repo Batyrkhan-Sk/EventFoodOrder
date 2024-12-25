@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Order Service</title>
+    <link rel="stylesheet" href="/main/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="header__logo">
+        <img src="/assets/chief_hat.png" alt="Logo" class="header__logo-img" />
+        <span class="header__logo-text">Foo</span>
+      </a>
+
+      <div class="header__search">
+        <p class="header__search-text">
+          <img
+            src="/assets/magnifier.png"
+            alt="Search Icon"
+            class="header__search-icon"
+          />
+          <input
+            class="header__search-input"
+            type="text"
+            placeholder="What can we get you?"
+          />
+        </p>
+      </div>
+
+      <div class="auth-buttons">
+        <a
+          href="/auth/login.html"
+          class="auth-buttons__button auth-buttons__button--login"
+          >Log in</a
+        >
+        <a
+          href="/auth/signUp.html"
+          class="auth-buttons__button auth-buttons__button--signup"
+          >Sign up</a
+        >
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="main__title">
+        <h1 class="main__title-fast">Fast</h1>
+        <div class="main__title-delivery-container">
+          <h1 class="main__title-delivery main__title-delivery--food">Food</h1>
+          <h1 class="main__title-delivery main__title-delivery--delivery">
+            Delivery
+          </h1>
+        </div>
+      </div>
+      <p class="main__title-delivery-description">
+        Sed ut perspiciatis unde omnis iste natus sit voluptatem <br />
+        accusantium doloremque laudantium
+      </p>
+      <button class="main__button">
+        <span class="main__button-text">Order Now</span>
+      </button>
+    </main>
+  </body>
+</html>

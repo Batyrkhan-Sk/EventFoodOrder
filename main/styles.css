@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); 
+
+body {
+    background-color: #FDFBD4; 
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.header__logo {
+    text-decoration: none;
+}
+
+.header__logo-img {
+    margin-top: 4px;
+    margin-right: 2px;
+    height: 28px;
+}
+
+.header__logo-text {
+    font-family: 'Poppins';
+    font-size: 28px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    color: #000000;
+}
+
+.header__search {
+    display: flex;
+    align-items: center;
+
+    padding-left: 10px;
+    margin-top: -2px;
+
+    width: 374px;
+    height: 40px;
+
+    background: #FFFFFF;
+
+    border-radius: 30px;
+}
+
+.header__search-input {
+    padding: 0;
+
+    font-family: 'Poppins';
+    font-size: 14px;
+    
+    border: none; 
+    outline: none; 
+    
+    color: #000000;
+}
+
+.header__search-icon {
+    width: 20px;
+    height: auto;
+    
+    margin-right: 10px;
+}
+
+.header__search-input {
+    font-family: 'Poppins';
+    color: #000000;
+    font-size: 14px;
+}
+
+/* Auth Buttons Section */
+.auth-buttons {
+    display: flex;
+    height: 32px;
+    gap: 8px; 
+}
+
+.auth-buttons__button {
+    font-family: "Poppins";
+    font-size: 14px;
+
+    border-radius: 15px;
+    border: none;
+    padding: 6px 12px;
+
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.auth-buttons__button--login {
+    background: #FDFBD4; 
+    color: #007FFF;
+}
+
+.auth-buttons__button--signup {
+    background: #F3F0E0;
+    color: #242122;
+}
+
+.auth-buttons__button--signup:hover {
+    background: #EDE8D0;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+/* Main Section */
+.main__title {
+    margin-top: 120px;
+    margin-left: 108px;
+
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.main__title-fast {
+    font-family: 'Poppins';
+    font-size: 105px;
+    font-weight: bold;
+
+    color: #FF7E00;
+    margin: 0;
+}
+
+.main__title-delivery-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.main__title-delivery {
+    font-family: 'Poppins';
+    font-weight: bold;
+    margin: 0;
+}
+
+.main__title-delivery--food {
+    font-size: 52px;
+    color: #2F2F2F;
+}
+
+.main__title-delivery--delivery {
+    font-size: 52px;
+    color: #2F2F2F;
+    margin-top: -22px;
+}
+
+.main__title-delivery-description {
+    margin-left: 108px;
+    font-family: 'Poppins';
+    color: #909090;
+}
+
+/* Main Button */
+.main__button {
+    margin-left: 108px;
+    margin-top: 12px;
+
+    height: 42px;
+    width: 120px;
+
+    background: #2F2F2F;
+    border-radius: 84px;
+    border: none;
+
+    color: #FFFFFF;
+    transition: background 0.3s ease-in-out;
+}
+
+.main__button:hover {
+    cursor: pointer;
+    background: #E67300; 
+}
+
+.main__button-text {
+    font-family: 'Poppins';
+    font-size: 16px;
+
+    color: #F4ECE1;
+}
