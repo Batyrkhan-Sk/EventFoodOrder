@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sushi Order</title>
+    <link rel="stylesheet" href="okadzaki.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sushi-list">
+        <div class="sushi-card">
+          <img src="https://i.imgur.com/YOUR_IMAGE1.jpg" alt="Salmon Nigiri" />
+          <h3 class="sushi-name">Salmon Nigiri</h3>
+          <p class="sushi-description">
+            Two pieces of fresh, glistening salmon expertly draped over
+            hand-pressed, perfectly seasoned sushi rice. A classic for a
+            reason...
+          </p>
+          <p class="sushi-price" data-price="7590.00">7,590.00 〒</p>
+          <button class="add-to-order" data-name="Salmon Nigiri">+</button>
+        </div>
+
+        <div class="sushi-card">
+          <img src="https://i.imgur.com/YOUR_IMAGE2.jpg" alt="Tuna Maki" />
+          <h3 class="sushi-name">Tuna Maki</h3>
+          <p class="sushi-description">
+            Simple yet satisfying: succulent tuna tightly rolled with seasoned
+            sushi rice and crispy nori seaweed. A delightful bite of the
+            ocean...
+          </p>
+          <p class="sushi-price" data-price="5890.00">5,890.00 〒</p>
+          <button class="add-to-order" data-name="Tuna Maki">+</button>
+        </div>
+
+        <div class="sushi-card">
+          <img
+            src="https://i.imgur.com/YOUR_IMAGE3.jpg"
+            alt="California Roll"
+          />
+          <h3 class="sushi-name">California Roll</h3>
+          <p class="sushi-description">
+            A popular choice: creamy avocado, imitation crab meat, and
+            refreshing cucumber rolled together in seasoned sushi rice and nori.
+            Topped with sesame seeds...
+          </p>
+          <p class="sushi-price" data-price="6390.00">6,390.00 〒</p>
+          <button class="add-to-order" data-name="California Roll">+</button>
+        </div>
+
+        <div class="sushi-card">
+          <img
+            src="https://i.imgur.com/YOUR_IMAGE4.jpg"
+            alt="Spicy Salmon Roll"
+          />
+          <h3 class="sushi-name">Spicy Salmon Roll</h3>
+          <p class="sushi-description">
+            A fiery kick! Fresh salmon mixed with spicy mayo and crisp cucumber,
+            rolled in seasoned sushi rice and nori. Perfect for those who like a
+            little heat...
+          </p>
+          <p class="sushi-price" data-price="10700.00">10,700.00 〒</p>
+          <button class="add-to-order" data-name="Spicy Salmon Roll">+</button>
+        </div>
+      </div>
+
+      <div class="order-summary">
+        <h2>Your order</h2>
+        <ul class="order-items" id="order-items"></ul>
+        <p id="empty-order-message" class="empty-order">
+          You've not added any products yet. When you do, you'll see them here!
+        </p>
+        <button class="order-button" id="order-button">
+          Order 0 for 0.00 〒
+        </button>
+      </div>
+    </div>
+
+    <script src="okadzaki.js"></script>
+  </body>
+</html>

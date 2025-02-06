@@ -20,6 +20,9 @@ app.use(express.json());
 app.use("/assets", express.static(path.join(__dirname, "assets")));
 app.use("/auth", express.static(path.join(__dirname, "auth")));
 app.use("/main", express.static(path.join(__dirname, "main")));
+app.use("/food", express.static(path.join(__dirname, "food"))); 
+
+
 
 app.use("/api/orders", authenticate, orderRoutes);
 app.use("/api/auth", authRoutes);
@@ -29,6 +32,8 @@ app.use("/api/products", productRoutes);
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "/main/index.html")));
 app.get("/signUp", (req, res) => res.sendFile(path.join(__dirname, "auth/signUp.html")));
 app.get("/login", (req, res) => res.sendFile(path.join(__dirname, "auth/login.html")));
+app.get("/food", (req, res) => res.sendFile(path.join(__dirname, "food/food.html"))); 
+
 
 
 app.use((req, res) => {

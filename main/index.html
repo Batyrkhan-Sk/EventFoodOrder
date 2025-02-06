@@ -19,11 +19,13 @@
             src="/assets/magnifier.png"
             alt="Search Icon"
             class="header__search-icon"
+            id="search-button"
           />
           <input
             class="header__search-input"
             type="text"
             placeholder="What can we get you?"
+            id="search-input"
           />
         </p>
       </div>
@@ -56,7 +58,7 @@
         The food at your doorstep. Why starve when you have us. <br />
         Your hunger partner. Immediate delivery to your doorstep.
       </p>
-      <button class="main__button">
+      <button class="main__button" onclick="window.location.href='/food'"">
         <span class="main__button-text">Order Now</span>
       </button>
 
@@ -135,7 +137,6 @@
             <li><a href="#" class="footer__link">Home</a></li>
             <li><a href="#" class="footer__link">Menu</a></li>
             <li><a href="#" class="footer__link">About Us</a></li>
-            <li><a href="#" class="footer__link">Contact</a></li>
           </ul>
         </div>
 

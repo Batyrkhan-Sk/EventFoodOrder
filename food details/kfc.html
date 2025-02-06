@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Order</title>
+    <link rel="stylesheet" href="kfc.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="pizza-list">
+        <div class="pizza-card">
+          <img
+            src="/assets/kfc-pizza-tomatoes.jpg"
+            alt="Pizza with Sun-Dried Tomatoes and Arugula"
+          />
+          <h3 class="pizza-name">Sun-Dried Tomatoes</h3>
+          <p class="pizza-description">
+            Fermented dough, sun-dried tomatoes, cherry tomatoes, arugula, pine
+            nuts, ricotta cheese, tomato sauce, and olive oil...
+          </p>
+          <p class="pizza-price" data-price="3990.00">3,990.00 〒</p>
+          <button
+            class="add-to-order"
+            data-name="Pizza with Sun-Dried Tomatoes"
+          >
+            +
+          </button>
+        </div>
+
+        <div class="pizza-card">
+          <img src="/assets/kfc-tuna-capers.jpg" alt="Tuna and Capers Pizza" />
+          <h3 class="pizza-name">Tuna and Capers</h3>
+          <p class="pizza-description">
+            Fermented dough, Italian mozzarella, tomato sauce, tuna, capers, red
+            onion, and olive oil. Baked at 45...
+          </p>
+          <p class="pizza-price" data-price="3690.00">3,690.00 〒</p>
+          <button class="add-to-order" data-name="Tuna and Capers Pizza">
+            +
+          </button>
+        </div>
+
+        <div class="pizza-card">
+          <img
+            src="/assets/double-pepperoni.jpg"
+            alt="Double Pepperoni Pizza"
+          />
+          <h3 class="pizza-name">Double Pepperoni</h3>
+          <p class="pizza-description">
+            Fermented dough, Italian mozzarella, tomato sauce, double portion of
+            beef pepperoni and olive oil...
+          </p>
+          <p class="pizza-price" data-price="3690.00">3,690.00 〒</p>
+          <button class="add-to-order" data-name="Double Pepperoni Pizza">
+            +
+          </button>
+        </div>
+
+        <div class="pizza-card">
+          <img src="/assets/pear-gorgonzola.jpg" alt="Pear Gorgonzola Pizza" />
+          <h3 class="pizza-name">Pear Gorgonzola</h3>
+          <p class="pizza-description">
+            Fermented dough, Italian mozzarella, pear, Parmesan, Gorgonzola,
+            white sauce. Baked at 457 degrees
+          </p>
+          <p class="pizza-price" data-price="3690.00">3,690.00 〒</p>
+          <button class="add-to-order" data-name="Pear Gorgonzola Pizza">
+            +
+          </button>
+        </div>
+      </div>
+
+      <div class="order-summary">
+        <h2>Your order</h2>
+        <ul class="order-items" id="order-items"></ul>
+        <p id="empty-order-message" class="empty-order">
+          You've not added any products yet. When you do, you'll see them here!
+        </p>
+        <button class="order-button" id="order-button">
+          Order 0 for 0.00 〒
+        </button>
+      </div>
+    </div>
+
+    <script src="kfc.js"></script>
+  </body>
+</html>

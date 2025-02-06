@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baursak Order</title>
+    <link rel="stylesheet" href="salambaursak.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="baursak-list">
+        <div class="baursak-card">
+          <img
+            src="https://i.imgur.com/YOUR_IMAGE1.jpg"
+            alt="Traditional Baursak"
+          />
+          <h3 class="baursak-name">Traditional Baursak</h3>
+          <p class="baursak-description">
+            Classic golden-brown baursak, made with a simple dough of flour,
+            yeast, milk, and a touch of sugar...
+          </p>
+          <p class="baursak-price" data-price="2000.00">2,000.00 〒</p>
+          <button class="add-to-order" data-name="Traditional Baursak">
+            +
+          </button>
+        </div>
+
+        <div class="baursak-card">
+          <img
+            src="https://i.imgur.com/YOUR_IMAGE2.jpg"
+            alt="Sweet Baursak with Honey"
+          />
+          <h3 class="baursak-name">Erekshe Baursak</h3>
+          <p class="baursak-description">
+            Sweetened baursak drizzled with rich, golden honey. A delightful
+            treat for those with a sweet tooth...
+          </p>
+          <p class="baursak-price" data-price="2500.00">2,500.00 〒</p>
+          <button class="add-to-order" data-name="Sweet Baursak with Honey">
+            +
+          </button>
+        </div>
+
+        <div class="baursak-card">
+          <img
+            src="https://i.imgur.com/YOUR_IMAGE3.jpg"
+            alt="Savory Baursak with Herbs"
+          />
+          <h3 class="baursak-name">Tatti Baursak</h3>
+          <p class="baursak-description">
+            Savory baursak infused with a blend of aromatic herbs. A flavorful
+            option that complements a variety of dishes...
+          </p>
+          <p class="baursak-price" data-price="1800.00">1,800.00 〒</p>
+          <button class="add-to-order" data-name="Savory Baursak with Herbs">
+            +
+          </button>
+        </div>
+
+        <div class="baursak-card">
+          <img
+            src="https://i.imgur.com/YOUR_IMAGE4.jpg"
+            alt="Cheese-Filled Baursak"
+          />
+          <h3 class="baursak-name">Cheese-Filled Baursak</h3>
+          <p class="baursak-description">
+            Delicious baursak filled with a creamy, savory cheese filling. A
+            satisfying and comforting snack...
+          </p>
+          <p class="baursak-price" data-price="1700.00">1,700.00 〒</p>
+          <button class="add-to-order" data-name="Cheese-Filled Baursak">
+            +
+          </button>
+        </div>
+      </div>
+
+      <div class="order-summary">
+        <h2>Your order</h2>
+        <ul class="order-items" id="order-items"></ul>
+        <p id="empty-order-message" class="empty-order">
+          You've not added any products yet. When you do, you'll see them here!
+        </p>
+        <button class="order-button" id="order-button">
+          Order 0 for 0.00 〒
+        </button>
+      </div>
+    </div>
+
+    <script src="salambaursak.js"></script>
+  </body>
+</html>
