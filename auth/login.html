@@ -9,31 +9,100 @@
   <body>
     <div class="container">
       <h1 class="title">Log In</h1>
-      <form class="form">
-        <label for="input-login" class="label">Enter your phone or email</label>
+      <form id="loginForm" class="form">
+        <label for="email" class="label">Email</label>
         <input
-          type="text"
-          id="input-login"
+          type="email"
+          id="email"
           class="input"
-          placeholder="Enter phone or email"
+          placeholder="Enter your email"
+          required
         />
-        <button class="btn btn-primary">Continue</button>
+
+        <label for="password" class="label">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="input"
+          placeholder="Enter your password"
+          required
+        />
+
+        <button type="submit" class="btn btn-primary">Continue</button>
       </form>
 
       <div class="divider">
         <span class="divider-line"></span>
-        <span class="divider-text">or</span>
-        <span class="divider-line"></span>
-      </div>
-
-      <div class="social-login">
-        <button class="btn btn-google">Log in with Google</button>
-        <button class="btn btn-apple">Log in with Apple</button>
       </div>
 
       <p class="terms">
         By continuing, you agree to the terms and conditions of our service.
       </p>
+
+      <p id="message" class="message"></p>
     </div>
+
+    <script>
+      // Generate or retrieve a unique deviceId
+      const getDeviceId = () => {
+        let deviceId = localStorage.getItem("deviceId");
+
+        // If no deviceId exists, generate a new one
+        if (!deviceId) {
+          // Use a combination of browser userAgent and a random number
+          deviceId = `${navigator.userAgent}-${Math.random()
+            .toString(36)
+            .substring(2, 15)}`;
+          localStorage.setItem("deviceId", deviceId);
+        }
+
+        return deviceId;
+      };
+
+      // Handle form submission
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const deviceId = getDeviceId(); // Automatically get the deviceId
+
+          try {
+            const response = await fetch(
+              "http://localhost:3000/api/auth/login",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password, deviceId }),
+              }
+            );
+
+            const data = await response.json();
+
+            if (response.ok) {
+              document.getElementById("message").textContent =
+                "Login successful!";
+              console.log("Access Token:", data.accessToken);
+
+              // Store the access token in localStorage
+              localStorage.setItem("accessToken", data.accessToken);
+
+              // Redirect to the main page
+              window.location.href = "/main/index.html";
+            } else {
+              document.getElementById("message").textContent =
+                data.message || "Login failed";
+            }
+          } catch (error) {
+            document.getElementById("message").textContent =
+              "An error occurred. Please try again.";
+            console.error("Login error:", error);
+          }
+        });
+    </script>
   </body>
 </html>

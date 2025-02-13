@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="payment.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://js.braintreegateway.com/web/dropin/1.33.7/js/dropin.min.js"></script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <h1>Okadzaki</h1>
+
+      <div class="container">
+        <div class="order-details">
+          <section>
+            <h2>Order Items</h2>
+          </section>
+
+          <section class="delivery-details">
+            <h3>Delivery details</h3>
+            <div class="map-frame">
+              <div id="map"></div>
+              <div id="selected-location"></div>
+            </div>
+
+            <div class="address-selection">
+              <i class="fas fa-map-marker-alt address-icon"></i>
+              <div class="address-text">
+                <p>Turan Avenue, 46</p>
+                <p class="secondary-text">2</p>
+              </div>
+              <i class="fas fa-chevron-right arrow-icon"></i>
+            </div>
+
+            <div class="time-schedule">
+              <div class="time-box">
+                <div class="time-title">45-55 min</div>
+                <div class="time-subtitle">As soon as possible</div>
+              </div>
+              <div class="schedule-box">
+                <div class="schedule-title">Schedule</div>
+                <div class="schedule-subtitle">Choose a day and time</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="payment-method">
+            <h3>Payment method</h3>
+            <div id="dropin-container"></div>
+            <button id="submit-button" class="pay-button">Pay to order</button>
+          </section>
+        </div>
+
+        <div class="summary">
+          <div class="summary-header">
+            <h2>Summary</h2>
+            <img src="" alt="Food image" />
+          </div>
+          <div class="summary-item">
+            <span>Products</span>
+            <span id="products-total"></span>
+          </div>
+          <div class="summary-item">
+            <span>Delivery</span>
+            <span class="delivery-free">684,00 ₸</span>
+          </div>
+          <div class="total">
+            <span>TOTAL:</span>
+            <span id="total-price"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="payment.js"></script>
+    <script src="/main/map.js"></script>
+
+    <script>
+      function loadMap() {
+        initMap();
+      }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe2hQrVukU7Sm3POmu7-dOAFC1Jv07oi4&callback=loadMap"
+      async
+      defer
+    ></script>
+  </body>
+</html>

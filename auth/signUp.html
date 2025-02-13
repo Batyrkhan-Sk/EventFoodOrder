@@ -9,33 +9,93 @@
   <body>
     <div class="container">
       <h1 class="title">Sign Up</h1>
-      <form class="form">
-        <label for="input-signup" class="label"
-          >Enter your phone or email</label
-        >
+      <form id="signupForm" class="form">
+        <label for="name" class="label">Name</label>
         <input
           type="text"
-          id="input-signup"
+          id="name"
           class="input"
-          placeholder="Enter phone or email"
+          placeholder="Enter your name"
+          required
         />
-        <button class="btn btn-primary">Continue</button>
+
+        <label for="email" class="label">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="input"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="password" class="label">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="input"
+          placeholder="Enter your password"
+          required
+        />
+
+        <button type="submit" class="btn btn-primary">Continue</button>
       </form>
 
       <div class="divider">
         <span class="divider-line"></span>
-        <span class="divider-text">or</span>
-        <span class="divider-line"></span>
-      </div>
-
-      <div class="social-login">
-        <button class="btn btn-google">Sign up with Google</button>
-        <button class="btn btn-apple">Sign up with Apple</button>
       </div>
 
       <p class="terms">
         By signing up, you agree to the terms and conditions of our service.
       </p>
+
+      <p id="message" class="message"></p>
     </div>
+
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          try {
+            const response = await fetch(
+              "http://localhost:3000/api/auth/register",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  name,
+                  email,
+                  password,
+                  deviceId: "defaultDeviceId",
+                }),
+              }
+            );
+
+            const data = await response.json();
+
+            if (response.ok) {
+              // Store the access token in localStorage
+              localStorage.setItem("accessToken", data.accessToken);
+
+              // Redirect to the main page
+              window.location.href = "/main/index.html";
+            } else {
+              document.getElementById("message").textContent =
+                data.message || "Registration failed";
+            }
+          } catch (error) {
+            document.getElementById("message").textContent =
+              "An error occurred. Please try again.";
+            console.error("Sign-up error:", error);
+          }
+        });
+    </script>
   </body>
 </html>

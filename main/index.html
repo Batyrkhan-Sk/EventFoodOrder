@@ -12,7 +12,7 @@
         <img src="/assets/chief_hat.png" alt="Logo" class="header__logo-img" />
         <span class="header__logo-text">Foo</span>
       </a>
-
+    
       <div class="header__search">
         <p class="header__search-text">
           <img
@@ -29,18 +29,20 @@
           />
         </p>
       </div>
-
-      <div class="auth-buttons">
-        <a
-          href="/login"
-          class="auth-buttons__button auth-buttons__button--login"
-          >Log in</a
-        >
-        <a
-          href="/signUp"
-          class="auth-buttons__button auth-buttons__button--signup"
-          >Sign up</a
-        >
+    
+      <div class="user-dropdown" id="user-dropdown" style="display: none;">
+        <button class="user-dropdown__button" id="user-button">
+          <span id="user-name"></span> <!-- Ensure this element exists -->
+          <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="user-dropdown__content" id="dropdown-content">
+          <a href="#" id="logout-button">Log Out</a>
+        </div>
+      </div>
+    
+      <div class="auth-buttons" id="auth-buttons">
+        <a href="/login" class="auth-buttons__button auth-buttons__button--login">Log in</a>
+        <a href="/signUp" class="auth-buttons__button auth-buttons__button--signup">Sign up</a>
       </div>
     </header>
 
@@ -155,55 +157,55 @@
     </footer>
 
     <script>
-      let selectedLocation = null;
+     document.addEventListener("DOMContentLoaded", () => {
+  const accessToken = localStorage.getItem("accessToken");
 
-      function initMap() {
-        const center = { lat: 51.1694, lng: 71.4491 };
-        const map = new google.maps.Map(document.getElementById("map"), {
-          center: center,
-          zoom: 12,
-        });
+  if (accessToken) {
+    try {
+      const decodedToken = JSON.parse(atob(accessToken.split(".")[1]));
+      console.log("Decoded Token:", decodedToken); 
 
-        const marker = new google.maps.Marker({
-          position: center,
-          map: map,
-          title: "Delivery Location",
-        });
+      const userName = decodedToken.name;
+      console.log("User Name:", userName); 
+      document.getElementById("user-name").textContent = userName;
+      document.getElementById("user-dropdown").style.display = "block";
+      document.getElementById("auth-buttons").style.display = "none";
 
-        map.addListener("click", (event) => {
-          const clickedLocation = event.latLng;
+      document.getElementById("logout-button").addEventListener("click", async (e) => {
+        e.preventDefault();
 
-          if (selectedLocation) {
-            selectedLocation.setMap(null);
-          }
-
-          selectedLocation = new google.maps.Marker({
-            position: clickedLocation,
-            map: map,
-            title: "Selected Location",
+        try {
+          const deviceId = "defaultDeviceId"; 
+          const response = await fetch("http://localhost:3000/api/auth/logout", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${accessToken}`,
+            },
+            body: JSON.stringify({ deviceId }), 
           });
 
-          const geocoder = new google.maps.Geocoder();
-          geocoder
-            .geocode({ location: clickedLocation })
-            .then((response) => {
-              if (response.results[0]) {
-                const address = response.results[0].formatted_address;
-                document.getElementById("selected-location").innerHTML = `
-                  Selected Location: <br/>
-                  Address: ${address}
-                `;
-              } else {
-                document.getElementById("selected-location").innerHTML =
-                  "No address found!";
-              }
-            })
-            .catch((e) => {
-              console.log("Geocoder failed due to: " + e);
-            });
-        });
-      }
+          if (response.ok) {
+            localStorage.removeItem("accessToken");
+
+            window.location.href = "/main/index.html";
+          } else {
+            console.error("Logout failed:", await response.json());
+          }
+        } catch (error) {
+          console.error("Logout error:", error);
+        }
+      });
+    } catch (error) {
+      console.error("Token decoding error:", error);
+      localStorage.removeItem("accessToken");
+      document.getElementById("auth-buttons").style.display = "block";
+    }
+  }
+});
     </script>
+
+    <script src="map.js"></script>
 
     <div id="map" style="height: 600px; width: 100%"></div>
 
